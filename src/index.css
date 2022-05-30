@@ -1,13 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes&family=Quicksand:wght@200&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.25rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.details-page {
+  background-image: url('./images/clouds.jpg');
+  height: 100vh;
+  text-align: center;
+  display: block;
+}
+
+.details-page-header {
+  text-align: center;
+  font-size: 2.5rem;
+  padding-top: 20vh;
+}
+.details-page-data-container {
+  padding-top: 2.5vh;
+  justify-content: center;
+  position: relative;
+  display: flex;
+  gap: 5vw;
+}
+
+.main-page {
+  background-image: url('./images/clouds.jpg');
+  height: 100vh;
+  text-align: center;
+}
+
+.main-page-container {
+  display: block;
+  top: 20vh;
+  justify-content: center;
+  position: relative;
+}
+
+.main-page-form-container {
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  display: block;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.main-page-data-container {
+  padding-top: 5vh;
+  justify-content: center;
+  position: relative;
+  display: flex;
+  gap: 5vw;
+}
+
+.detail-view {
+  display: block;
+}
+
+.items {
+  display: block;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.25rem;
+}
+
+.title {
+  font-weight: 500;
+  padding-bottom: 1.5vh;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.value {
+  font-style: italic;
+  padding-bottom: 1vh;
+}
+
+input {
+  height: 2rem;
+  width: 400px;
+  border-radius: 20px;
+}
+
+button {
+  height: 2rem;
+  width: 50px;
+  background: #0e9aa7;
+  color: #fff;
+  border: #fff;
+  border-radius: 10px;
+}
+
+button:hover {
+  background: #fff;
+  color: #0e9aa7;
+  border: #0e9aa7;
+}
+
+.error {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.5rem;
+  color: red;
 }
