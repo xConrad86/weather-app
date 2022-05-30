@@ -37,7 +37,9 @@ const DetailsPage: React.FC = () => {
   return (
     <div className="details-page">
       {error ? (
-        <div className="error"></div>
+        <div className="error">
+          Cannot get data... Provide proper parameters
+        </div>
       ) : isLoading ? (
         <div className="title"> Loading data please wait...</div>
       ) : (
