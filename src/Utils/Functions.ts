@@ -57,13 +57,13 @@ export const prepareData = (data: any) => {
   let morningTemp;
   let dayTemp;
   let nightTemp;
+  let maxVal = 0;
+  let minVal = 0;
 
   for (let i = 0; i < list.length; i++) {
     const dayTime = list[i];
     let previousDateTime;
     let previousDay;
-    let maxVal;
-    let minVal;
 
     if (i > 0) {
       previousDay = list[i - 1].dt_txt.split(' ')[0];
@@ -97,6 +97,8 @@ export const prepareData = (data: any) => {
       newList.push(previousDateTime);
       occurences = 0;
       modeValues = [];
+      maxVal = -999;
+      minVal = 999;
     }
 
     occurences += 1;
