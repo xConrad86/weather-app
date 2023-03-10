@@ -8,9 +8,18 @@ const apiUrl = (
   countryCode?: string,
   isForecast?: boolean
 ) => {
-  const place = city + (countryCode ? ', ' + countryCode : '');
+  const {
+    REACT_APP_API_DOMAIN: domain,
+    REACT_APP_API_SERVER: server,
+    REACT_APP_API_KEY: key,
+  } = process.env;
+
+  const place = city + (countryCode ? ',%20' + countryCode : '');
   const param = !isForecast ? 'weather?' : 'forecast?';
-  return `https://api.openweathermap.org/data/2.5/${param}q=${place}&appid=${appId}&units=metric`;
+  const url = `${domain}${server}/data/2.5/${param}q=${place}&appid=${key}&units=metric`;
+
+  console.log(url);
+  return url;
 };
 
 export const getMainViewData = async (places: IPlace[]) => {
@@ -19,8 +28,10 @@ export const getMainViewData = async (places: IPlace[]) => {
     queries.push(axios.get(apiUrl(appId, place.city, place.countryCode)));
   });
   try {
+    console.log(queries);
     const response = await Promise.all(queries);
     const data = response.map((res) => res.data);
+    console.log(data);
     return data;
   } catch {
     throw Error('Cannot get data... try again later');

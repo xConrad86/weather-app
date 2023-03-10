@@ -47,11 +47,10 @@ const getModeValOccurences = (modeValues: [], chosenIndex: number) => {
 
 export const prepareData = (data: any) => {
   const { list } = data;
+  console.log(list);
   const newList: any[] = [];
   let modeValues = [];
   let occurences = 0;
-  let maxVal;
-  let minVal;
   let humidity = 0;
   let meanVal = 0;
   let modeVal = 0;
@@ -63,6 +62,9 @@ export const prepareData = (data: any) => {
     const dayTime = list[i];
     let previousDateTime;
     let previousDay;
+    let maxVal;
+    let minVal;
+
     if (i > 0) {
       previousDay = list[i - 1].dt_txt.split(' ')[0];
       previousDateTime = cloneDeep(list[i - 1]);
