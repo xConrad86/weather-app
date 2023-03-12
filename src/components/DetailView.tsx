@@ -5,9 +5,14 @@ interface Props {
   city?: any;
 }
 
-export const DetailView: any = ({ weatherData, isDetail }: Props) => {
+export const DetailView = ({ weatherData, isDetail }: Props): JSX.Element => {
   const weather = weatherData.weather[0];
   const { main } = weatherData;
+  const { REACT_APP_API_DOMAIN: domain, REACT_APP_API_SERVER_IMG: server } =
+    process.env;
+
+  const imgUrl = `${domain}${server}/img/wn/${weather.icon}@2x.png`;
+
   let currentDate;
   let dayOfTheWeek;
   if (isDetail) {
@@ -19,7 +24,7 @@ export const DetailView: any = ({ weatherData, isDetail }: Props) => {
     <div className="detail-view" key={weatherData.id}>
       {!isDetail ? weatherData.name : null}
       <br />
-      <img src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`} />
+      <img src={imgUrl} />
       {!isDetail ? (
         <div className="items">
           <div className="value">{weather.description}</div>
